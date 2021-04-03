@@ -1,0 +1,448 @@
+    1  apt-get update ; apt-get install vim -y 
+    2  apt-get install default-jdk -y 
+    3  java --version 
+    4  java -version 
+    5  ls
+    6  exit
+    7  vi /etc/default/jenkins 
+    8  ls
+    9  java -jar jenkins.war --httpPort=9090 & 
+   10  ls
+   11  ls -a 
+   12  systemctl status jenkins 
+   13  systemctl stop jenkins 
+   14  systemctl disable jenkins 
+   15  java -jar jenkins.war --httpPort=9090 & 
+   16  ps -ef | grep -i jenkins 
+   17  cat .jenkins/secrets/initialAdminPassword 
+   18  java -jar jenkins.war --httpPort=9090 & 
+   19  ps -ef | grep -i jenkins 
+   20  kill -9 2178
+   21  ps -ef | grep -i jenkins 
+   22  ls -a
+   23  ls -ltr .jenkins/workspace/
+   24  java -jar jenkins.war --httpPort=9090 & 
+   25  ps -ef | grep -i jenkins 
+   26  kill -9 8900
+   27  ls
+   28  cd .jenkins/
+   29  ls
+   30  cd 
+   31  ls
+   32  cd devcloud-dxc-30Mar2021
+   33  ls
+   34  git pull 
+   35  ls
+   36  cp  -rf ../devops-stackstrom-dxc-2021-Jan-04/04-Docker/00-Setup . 
+   37  ls
+   38  git pull 
+   39  cd 00-Setup/
+   40  ls
+   41  cd ..
+   42  ls
+   43  cd ..
+   44  ls
+   45  cd -
+   46  git config --list 
+   47  cd ..
+   48  ls
+   49  rm -rf devcloud-dxc-30Mar2021
+   50  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+   51  ls
+   52  cd devcloud-dxc-30Mar2021/
+   53  ls
+   54  mkdir 03-Docker
+   55  cd 03-Docker/
+   56  cp -rf ../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/00-Setup  . 
+   57  ls
+   58  cd ../
+   59  git add . ; git commit -m "Docker" ; git push 
+   60  free -m 
+   61  ls
+   62  cd 03-Docker/
+   63  ls
+   64  cd 00-Setup/
+   65  ls
+   66  ./install-docker.sh 
+   67  docker version 
+   68  docker run busybox echo "Welcome to the world of Docker."
+   69  docker run busybox echo "Welcome to the world of Docker - Test 2"
+   70  docker pull ubuntu 
+   71  docker images 
+   72  docker pull ubuntu:16.04
+   73  docker images 
+   74  docker pull amitvashist7/k8s-tiny-web
+   75  docker images 
+   76  docker pull amitvashist7/k8s-tiny-web:2
+   77  docker images 
+   78  docker pull amitvashist7/k8s-tiny-web:3
+   79  docker pull amitvashist7/k8s-tiny-web:4
+   80  docker images 
+   81  docker pull amitvashist7/apache-ex4
+   82  docker login 
+   83  docker pull amitvashist7/apache-ex4
+   84  history 
+   85  docker ps 
+   86  docker ps -a 
+   87  docker run -it ubuntu
+   88  cat /etc/*-release
+   89  docker ps 
+   90  docker ps -a
+   91  docker run -itd ubuntu
+   92  docker ps 
+   93  docker run -itd ubuntu
+   94  docker ps 
+   95  docker run -itd ubuntu:16.04
+   96  docker ps 
+   97  docker run -itd --name test-1 ubuntu:16.04
+   98  docker ps 
+   99  docker run -itd --name test-1 ubuntu:16.04
+  100  docker run -itd --name app-A ubuntu:16.04
+  101  docker run -itd --name app-B ubuntu:16.04
+  102  docker ps 
+  103  docker attach app-B
+  104  docker ps 
+  105  docker ps -a 
+  106  docker start app-B
+  107  docker ps 
+  108  docker attach app-B
+  109  docker ps 
+  110  docker attach app-B
+  111  docker ps 
+  112  docker exec app-B ls 
+  113  docker exec app-B cat amitvashist/hello.txt
+  114  docker exec app-B ps -ef 
+  115  docker exec app-B cat /etc/os-release 
+  116  ls
+  117  docker ps 
+  118  docker stop app-B
+  119  docker ps 
+  120  docker kill app-A
+  121  docker ps 
+  122  docker ps -q
+  123  docker kill $(docker ps -q)
+  124  docker ps 
+  125  docker ps -a
+  126  docker kill $(docker ps -qa)
+  127  docker rm $(docker ps -qa)
+  128  docker ps -a
+  129  ls
+  130  docker run -itd --name app-B ubuntu:16.04
+  131  docker ps 
+  132  docker inspect app-B
+  133  docker run -itd  ubuntu:16.04
+  134  docker ps 
+  135  docker inspect 5a027d5207b8
+  136  ls
+  137  cd ..
+  138  ls
+  139  cp -rf ../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/01-DockerCommands . 
+  140  ls
+  141  cd 01-DockerCommands/
+  142  ls
+  143  cat Basic_Commands.txt 
+  144  ls
+  145  history >  Day3_history.txt
+  146  cd ../../
+  147  ls
+  148  git add . ; git commit -m "Docker" ; git push 
+  149  ls
+  150  cd 03-Docker/
+  151  ls
+  152  mkdir 02-Dockerfile
+  153  cd 02-Dockerfile/
+  154  ls
+  155  mkdir apache
+  156  ls
+  157  cd apache/
+  158  ls
+  159  docker run -it ubuntu 
+  160  docker run -it ubuntu:16.04
+  161  ls
+  162  vim Dockerfile
+  163  ls
+  164  docker build -t myapache:v1 . 
+  165  ls
+  166  docker image 
+  167  docker images
+  168  docker run -d --name test-apache-node-1 myapache:v1
+  169  docker ps 
+  170  docker inspect test-apache-node-1
+  171  curl 172.17.0.7
+  172  cd ../../../
+  173  git config credentials.helper store 
+  174  git add . ; git commit -m "Docker" ; git push 
+  175  ls
+  176  cd 03-Docker/
+  177  ls
+  178  cd 01-DockerCommands/
+  179  ls
+  180  history > Day3_history.txt 
+  181  cd ../../
+  182  git add . ; git commit -m "Docker" ; git push 
+  183  git config credential.helper store 
+  184  ls
+  185  cd 03-Docker/
+  186  ls
+  187  cd 02-Dockerfile/
+  188  ls
+  189  cd apache/
+  190  ls
+  191  vim Dockerfile 
+  192  ls
+  193  vim index.html
+  194  ls
+  195  cat Dockerfile 
+  196  docker build -t myapache:v2 . 
+  197  ls
+  198  docker images 
+  199  docker run -d --name test-apache-node-2 myapache:v2
+  200  curl 172.17.0.8 
+  201  ls
+  202  vim Dockerfile 
+  203  ls
+  204  docker build -t myapache:v3 . 
+  205  docker run -d --name test-apache-node-3 myapache:v3
+  206  docker ps 
+  207  vim Dockerfile 
+  208  ls
+  209  docker run -d --name test-apache-node-3 myapache:v4
+  210  docker build -t myapache:v4 . 
+  211  docker run -d --name test-apache-node-5 myapache:v4
+  212  docker ps 
+  213  docker inspect test-apache-node-5
+  214  telnet 172.17.0.10 3306 
+  215  telnet 172.17.0.10 8081
+  216  telnet 172.17.0.10 80
+  217  docker ps 
+  218  ls
+  219  vim Dockerfile 
+  220  ls
+  221  docker ps 
+  222  curl 172.17.0.10 
+  223  ip addr 
+  224  ls
+  225  docker ps 
+  226  netstat -tulnp 
+  227  docker run -d --name test-apache-node-6 -p 8081:80  myapache:v3
+  228  docker ps 
+  229  netstat -tulnp 
+  230  docker run -d --name test-apache-node-7 -P  myapache:v3
+  231  docker ps 
+  232  docker run -d --name test-apache-node-8 -P  myapache:v2
+  233  docker ps 
+  234  docker run -d --name test-apache-node-9 -P  myapache:v4
+  235  docker ps 
+  236  netstat -tulnp 
+  237  systemctl status docker
+  238  docker ps 
+  239  docker run -d --name test-apache-node-10 -p 8085:80  myapache:v2
+  240  docker ps 
+  241  ls
+  242  cd ..
+  243  ls
+  244  cd ..
+  245  ls
+  246  cd 01-DockerCommands/
+  247  ls
+  248  history > Day3_history.txt 
+  249  git add . ; git commit -m "Docker" ; git push 
+  250  ls
+  251  cd ..
+  252  ls
+  253  cd ..
+  254  ls
+  255  git add . ; git commit -m "Docker" ; git push 
+  256  ls
+  257  docker images 
+  258  docker login 
+  259  docker push myapache:v4
+  260  docker images 
+  261  docker tag 76e808de9577 amitvashist7/myapache:v4
+  262  docker images 
+  263  docker push amitvashist7/myapache:v4 
+  264  docker tag 29c470626289 amitvashist7/myapache:v3
+  265  docker push amitvashist7/myapache:v3
+  266  sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  267  sudo chmod +x /usr/local/bin/docker-compose
+  268  docker-compose version
+  269  ls
+  270  cd 03-Docker/
+  271  ls
+  272  mkdir 04-DockerCompose/01-NginxApp -p 
+  273  cd 04-DockerCompose/01-NginxApp/
+  274  ls
+  275  vim docker-compose.yaml
+  276  ls
+  277  docker-compose up -d 
+  278  docker ps 
+  279  docker kill $(docker ps -qa) 
+  280  docker rm $(docker ps -qa) 
+  281  docker ps 
+  282  docker-compose up -d 
+  283  docker ps 
+  284  ls
+  285  cd ..
+  286  ls
+  287  cp -rf 01-NginxApp 02-MultiApp
+  288  cd 02-MultiApp/
+  289  ls
+  290  docker images 
+  291  ls
+  292  vim docker-compose.yaml 
+  293  docker-compose up -d 
+  294  docker ps 
+  295  docker-compose kill 
+  296  docker ps 
+  297  docker ps -a
+  298  docker-compose rm
+  299  docker-compose up -d 
+  300  docker-compose ps 
+  301  docker-compose --help
+  302  docker-compose kill  
+  303  docker-compose rm
+  304  ls
+  305  cd ..
+  306  ls
+  307  cd ../
+  308  ls
+  309  cd ..
+  310  ls
+  311  history > 03-Docker/01-DockerCommands/Day3_history.txt 
+  312  git add . ; git commit -m "DockerCompose" ; git push 
+  313  ls
+  314  cd 03-Docker/04-DockerCompose/
+  315  ls
+  316  mkdir 03-MyCustomApp
+  317  ls
+  318  cd 03-MyCustomApp/
+  319  ls
+  320  cp -rf ../../02-Dockerfile/apache/* . 
+  321  ls
+  322  vim index.html 
+  323  ls
+  324  vim docker-compose.yaml
+  325  ls
+  326  docker-compose up -d 
+  327  docker-compose up -d --build
+  328  docker-compose up -d -build
+  329  docker-compose up -d --build .
+  330  docker-compose up -d --build
+  331  vim docker-compose.yaml 
+  332  docker-compose up --build
+  333  docker ps 
+  334  docker-compose up -d --build
+  335  ls
+  336  vim docker-compose.yaml 
+  337  docker-compose up -d --build
+  338  vim docker-compose.yaml 
+  339  ls
+  340  cd ..
+  341  ls
+  342  cd 03-MyCustomApp/
+  343  ls
+  344  cp -rf ../../../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose/05-Petclinic-Deploy/docker-compose.yaml . 
+  345  ls
+  346  cat docker-compose.yaml 
+  347  docker-compose up -d --build
+  348  docker-compose --version 
+  349  sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  350  sudo chmod +x /usr/local/bin/docker-compose
+  351  docker-compose --version 
+  352  ls
+  353  docker-compose up -d --build
+  354  docker-compose rm
+  355  docker-compose rmi 
+  356  docker ps 
+  357  docker-compose ps 
+  358  docker-compose kill 
+  359  ls
+  360  vim docker-compose.yaml 
+  361  docker-compose up -d --build
+  362  docker-compose  ps 
+  363  ls
+  364  cd ..
+  365  ls
+  366  cp -rf 03-MyCustomApp 04-PetclinicApp
+  367  cd 04-PetclinicApp/
+  368  ls
+  369  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose/05-Petclinic-Deploy/* . 
+  370  ls
+  371  ls -ltr 
+  372  rm -rf index.html 
+  373  ls
+  374  cat docker-compose.yaml 
+  375  cat Dockerfile 
+  376  ls
+  377  cp -rf /root/.jenkins/workspace/Petclinic-Pipeline/02-App-Code/petclinic-code/target/petclinic.war . 
+  378  ls
+  379  ll
+  380  docker-compose up -d --build 
+  381  docker ps 
+  382  docker kill b5fb9d1b5311 a3dcf1e25325
+  383  docker ps 
+  384  docker-compose kill 
+  385  ls
+  386  > petclinic.war 
+  387  ls
+  388  cd ..
+  389  ls
+  390  cd ..
+  391  ls
+  392  git add . ; git commit -m "DockerCompose" ; git push 
+  393  history > 03-Docker/01-DockerCommands/Day3_history.txt 
+  394  git add . ; git commit -m "DockerCompose" ; git push 
+  395  history 
+  396  docker ps 
+  397  docker ps -a
+  398  docker rm  $(docker ps -qa)
+  399  ls
+  400  cd 02-App-Code/
+  401  ls
+  402  cd petclinic-code/
+  403  ls
+  404  cp -rf ../../03-Docker/04-DockerCompose/04-PetclinicApp/Dockerfile . 
+  405  cp -rf ../../03-Docker/04-DockerCompose/04-PetclinicApp/docker-compose.yaml . 
+  406  ls
+  407  vim Dockerfile 
+  408  cat Dockerfile 
+  409  ls
+  410  cd ..
+  411  ls
+  412  cd ..
+  413  ls
+  414  git add . ; git commit -m "DockerCompose" ; git push 
+  415  git checkout Jenkins
+  416  ls
+  417  cd JenkinPipeline/
+  418  ls
+  419  cp -rf 05-TestReports-Pipeline 06-PreProd-Pipeline
+  420  ls
+  421  vim 06-PreProd-Pipeline 
+  422  ls
+  423  cp -rf 06-PreProd-Pipeline Jenkinsfile 
+  424  cd ../
+  425  ls
+  426  git add . ; git commit -m "DockerCompose Jenkinfile" ; git push 
+  427  ls
+  428  docker ps -a 
+  429  cd 
+  430  ls
+  431  java -jar jenkins.war --httpPort=9090 & 
+  432  docker ps -a 
+  433  ls
+  434  cd devcloud-dxc-30Mar2021/
+  435  ls
+  436  vim JenkinPipeline/Jenkinsfile 
+  437  ls
+  438  git checkout main
+  439  ls
+  440  cd 02-App-Code/petclinic-code/
+  441  ls
+  442  cat docker-compose.yaml 
+  443  cat Dockerfile 
+  444  cd ..
+  445  ls
+  446  cd ..
+  447  ls
+  448  history > 03-Docker/01-DockerCommands/Day3_history.txt 
